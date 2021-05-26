@@ -52,7 +52,7 @@ skills.addEventListener('click', () => {
 terminal.addEventListener('click',() => {
 const termBox = new WinBox({
     title: 'Terminal',
-    width: '400px',
+    width: '600px',
     height: '400px',
     top:50,
     right:50,
