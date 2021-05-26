@@ -61,4 +61,9 @@ const termBox = new WinBox({
     y: "center",
     url: "terminal.html",
   })
+window.addEventListener("message", function (ex) {
+		if (ex.origin !== window.location.protocol + "//" + window.location.host) return;
+		const o = ex.data;
+		"closeTerminal" == o && termBox.close()
+	})
 })
