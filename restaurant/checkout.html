@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="css/main.css" rel="stylesheet">
+</head>
+<body onload="getdata()">
+    
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <h1>
+                    <a href="index.html">
+                        <img src="images/logo.png" alt="" width="200px" height="100px">
+                    </a>
+                    <span style="font-family: 'Times New Roman', Times, serif; font-size: xx-large;">Food and Restro</h4>
+                </h1>
+            </div>
+        </div>
+    </div>
+</div>
+    <div id="navbar">
+        <a href="home.html" class="active">Home</a>
+        <a href="shopping.html">Shop</a>
+
+        <a id="logout" href="login.html">Logout</a>
+    </div>
+<br><br>
+<div id="all">
+    <div id="itemname">
+        <table id="hi" border="1" align="center" cellpadding="10">
+            <tr>
+                <th>Name</th>
+                <th>Price</th>
+            </tr>
+        </table>
+        <br>
+    </div><center>Total: 
+    <span id="totcontainer"></span>
+    <br><br><button style="   
+    width: 300px; 
+    padding:10px;
+    border:none;
+    background-color: #333;
+    color:white;" onclick="buy()">Buy</button></center>
+    </div>
+    <script>
+        function buy(){
+            document.getElementById('all').innerHTML='<h1><center>Your order has been recorded'
+        }
+        function getdata(){
+            let sum=0;
+            let sumprice=[]
+            let inames = localStorage.getItem("itemname")
+            let namearray = inames.split(",")
+            let iprice = localStorage.getItem("itemprice")
+            let pricearray = iprice.split(",")
+            let itemsnum = localStorage.getItem("itemsnum")
+            console.log(pricearray)
+            console.log(inames)
+            let table=document.getElementById("hi")
+            for(let items=0;items<itemsnum;items++){
+                sumprice.push(parseInt(pricearray[items]))
+                let row = table.insertRow(1)
+                var cell1=row.insertCell(0)
+                var cell2=row.insertCell(1)
+                console.log(namearray[items])
+                cell1.innerHTML=namearray[items]
+                cell2.innerHTML=pricearray[items]
+                
+            }  
+            console.log(sumprice)
+            for(let i = 0 ;i<itemsnum;i++)
+            {
+                sum=sumprice[i]+sum;
+                
+            }
+            document.getElementById("totcontainer").innerHTML=sum;
+        }
+
+    </script>

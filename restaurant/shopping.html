@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .row {margin: 0 -5px;
+            display:flex;
+}
+.brow{
+    display:flex;
+}
+        .addcard-btn{
+            padding:10px;
+            background-color: #333;
+            color:white;
+            font-size: 14px;
+            font-style:oblique;
+            font-weight: bold;
+            border:none;
+
+        }
+        .addcard-btn:hover{
+            background-color: #04AA6D;
+        }
+      
+        body{
+            font-family: Arial, Helvetica, sans-serif;
+        
+            }
+        .card {
+            box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+            transition:0.3s;
+            width:20%;
+            margin-left: 100px;
+            background-color: rgba(134, 134, 134, 0.377);;
+            
+            margin-bottom: 30px;
+            
+        }
+        .card:hover {
+            box-shadow: 0 8px 16px 0 rgba(0,0,0,1);
+        }
+        .container{
+            padding: 2px 16px;
+            
+        }
+        #navbar{
+    overflow: hidden;
+    background-color: #333;
+    margin-left: 30px;
+}
+#navbar a{
+    float:left;
+    color: #f2f2f2;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-size:17px;
+    border-bottom: 4px solid rgb(173, 173, 173);
+    border-width: 0px;
+    transition: border-width .2s;
+}
+#navbar a:hover{
+    background-color: #04AA6D;
+    
+    border-width: 4px;
+    cursor:grab;
+}
+*{
+    font-family: 'Roboto', sans-serif;
+}
+.active{
+    border-bottom: 4px solid rgb(173, 173, 173) !important;
+    border-bottom-left-radius: 2px;
+}
+.active:hover{
+    background-color:#333 !important;
+}
+
+        .dropdown {
+            padding: 12px 14px;
+            background-color: #333;
+            color:white;
+            position: relative;
+  display: inline-block;
+}
+
+.dropdown-content {
+    max-height: 400px;
+overflow: scroll;
+  display: none;
+  position: absolute;
+  background-color: rgb(143, 143, 143);
+  background-image: linear-gradient(to bottom right, rgb(201, 201, 201), rgb(75, 75, 75));
+  min-width: 200px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  padding: 12px 16px;
+  z-index: 1;
+  border-radius: 10px;
+  
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+#logout{
+    float:right !important;
+   
+}
+#checkout{
+    width: 100%;
+    padding:10px;
+    border:none;
+    background-color: #333;
+    color:white;
+
+}
+    </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src='https://kit.fontawesome.com/a076d05399.js' crossorigin='anonymous'></script>
+</head>
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <h1>
+                    <a href="index.html">
+                        <img src="images/logo.png" alt="" width="200px" height="100px">
+                    </a>
+                    <span style="font-family: 'Times New Roman', Times, serif; font-size: xx-large;">Food and Restro</h4>
+                </h1>
+            </div>
+        </div>
+    </div>
+    <div style="float:right;margin-right: 30px;"><i class='fas fa-smile'></i></div>
+    <br><br>
+        <div id="navbar">
+            <a href="home.html">Home</a>
+            <a class="active">Shop</a>
+        
+            <a id="logout" href="login.html">Logout</a>
+            
+        </div><br><br>
+            <div class="dropdown">
+                <a ><i class="fa fa-shopping-basket" aria-hidden="true"></i>
+                    (<span id="itemnumber">0</span>)</a>
+                <div class="dropdown-content" id="cartitems">
+                    <p id="noitem">Your cart is empty</p>
+                    <p>
+                        <button id="checkout" onclick="check()">Checkout</button></p>
+                </div>
+            </div>
+        
+           <br><br><br>
+           
+        <div class="row">
+            <div class="card">
+                <img src="images/fillet.jpeg" >
+            
+                <div class="container">
+                    <h4><b>Beef Steak</b></h4>
+                    Price: Rs <span class="price">900</span>
+                    <button onclick="incNum(0)" class="addcard-btn">Add to Cart
+                    </button>
+                    <br>
+                </div>
+            </div>
+            <div class="card">
+                <img src="images/salmon.jpg" width="100%">
+            
+                <div class="container">
+                    <h4><b>Baked Salmon</b></h4>
+                    Price: Rs <span class="price">690</span>
+                    <button onclick="incNum(1)"  class="addcard-btn">Add to Cart</button>
+                    <br>
+                </div>
+            </div>
+            <div class="card">
+                <img src="images/chowmein.jpeg" width="100%">
+            
+                <div class="container">
+                    <h4><b>Chowmein</b></h4>
+                    Price: Rs <span class="price">130</span>
+                    <button onclick="incNum(2)"  class="addcard-btn">Add to Cart</button>
+                    
+                </div>
+            </div>
+
+        
+        </div>
+        <div class="brow">
+            <div class="card">
+                <img src="images/momo.jpeg" width="100%">
+            
+                <div class="container">
+                    <h4><b>Momo</b></h4>
+                    Price: Rs <span class="price">150</span>
+                    <button onclick="incNum(3)"  class="addcard-btn">Add to Cart</button>
+                    <br>
+                </div>
+            </div>
+            <div class="card">
+                <img src="images/khajaset.jpg" width="100%">
+            
+                <div class="container">
+                    <h4><b>Khajaset</b></h4>
+                    Price: Rs <span class="price">330</span>
+                    <button onclick="incNum(4)"  class="addcard-btn">Add to Cart</button>
+                    <br>
+                </div>
+            </div>
+            <div class="card">
+                <img src="images/burger.jpeg" width="100%">
+            
+                <div class="container">
+                    <h4><b>Burger</b></h4>
+                    Price: Rs <span class="price">200</span>
+                    <button onclick="incNum(5)"  class="addcard-btn">Add to Cart</button>
+                    <br>
+                </div>
+            </div>
+        
+        </div>
+        
+    
+        
+    </body>
+<script src="js/script.js">
+   
+            </script>
+
+</html>

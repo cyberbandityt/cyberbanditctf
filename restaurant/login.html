@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    <link href="css/login.css" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <div class="card">
+            <div class="inner-box" id="card">
+                <div class="card-front">
+                    <h2>
+                        Login
+                    </h2>
+                        
+                            <input type="email" placeholder="Email" id="email" class="input-box" required>
+                            <input type="password" class="input-box" id="password" placeholder="Password">
+                            <input type="checkbox" onclick="showpass()"><span>Show Password</span>
+
+                            <button class="submit-btn" onclick="login()">Login</button>
+                            <input type="checkbox"><span>Remember me</span>
+                            <p><span id="error"></span></p>
+                        
+                        <button type="button"  class="btn" onclick="openRegister()">I am new here</button>
+                        <a href="#">Forgot Password?</a>
+                </div>
+                <div class="card-back">
+                    <h2>
+                        Register
+                    </h2>
+                        
+                            <input type="text" placeholder="Name" class="input-box" id="newname"required>
+                            <input type="email" placeholder="Email" class="input-box" id="newemail" required>
+                            <input type="password" class="input-box" placeholder="Password" id="newpass">
+                            <button class="submit-btn" id="registerbtn">Register</button>
+                            <input type="checkbox"><span>Remember me</span>
+                            <p><span id="errorreg"></span></p>
+                        <button type="button" class="btn" onclick="openLogin()">I've an account</button>
+                        
+                
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="js/login.js">
+
+    </script>
+</body>
+</html>
